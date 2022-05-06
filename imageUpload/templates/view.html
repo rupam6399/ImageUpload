@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>View images</title>
+	<style type="text/css">
+		.container{
+			text-align: center;
+		}
+		.box{
+			height: 250px;
+			width: 300px;
+			float: left;
+			margin-top: 20px;
+			margin-left: 10px;
+			margin-bottom: 20px;
+		}
+		.box img{
+			width: 100%;
+			height: 350px;
+		}
+		.btn{
+			height: 50px;
+			width: 150px;
+			background: red;
+			color: white;
+			padding: 10px;
+			text-decoration: none;
+			border-radius: 10px;
+
+		}
+		.success{
+			background-color: green;
+			
+
+		}
+	</style>
+</head>
+<body>
+<div class="container"> 
+	<h2>Image view</h2>
+	<hr>
+	<p><a href="/">Upload Image</a></p>
+	{% for data in result %}
+	<div class="box">
+		<img src="{{data[2]}}">
+		<p><b>{{data[1]}}</b></p>
+		<p><a href="{{data[2]}}" class="btn success">View</a>
+		<a href="/delete?id={{data[0]}}&path={{data[2]}}" class="btn">Delete</a></p>
+		<p><a href="/download?path={{data[2]}}" class="btn">Download</a></p>
+	</div>	
+	{% endfor %}
+</div>
+
+</body>
+</html>
